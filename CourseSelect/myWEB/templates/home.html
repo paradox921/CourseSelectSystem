@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>伪华中师范大学统一身份认证</title>
+    <link href="{% static 'bootstrap-3.3.7-dist/css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+<body>
+    <center style="color:white; background:#255085; padding:10px"><font size="6">伪华中师范大学统一身份认证</font></center>
+    <br><br><br><br>
+
+    <div class="container">
+        <div class="col-md-4 col-md-offset-4" style="background: #FFFFFF; opacity:0.8;">
+            {% if request.user.username %}
+            <center><h3> 欢迎 {{ request.user.username }} ！</h3></center>
+            <br><br><br>
+            <center><a href="/logout_view" style="color: red">安全退出</a></center>
+            <br><br><br><br>
+
+            {% else %}
+            <center><h3><font color="#255085"> 登录/Login </font></h3></center>
+            <br>
+
+            <form role="form" action="/login_view/" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="xh">学号或工号/ID Number</label>
+                    <input name="username" type="text" class="form-control" id="xh" placeholder="" autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="mm">密码/Password</label>
+                    <input name="password" type="password" class="form-control" id="mm" placeholder="" value="">
+                </div>
+                <!--<input name="username" type="text">-->
+                <!--<input name="password" type="password">-->
+                <div class="form-group" style="color: red">{{ msg }}</div>
+                <br>
+                <center><button>登录</button></center>
+            </form>
+            <br>
+            {% endif %}
+        </div>
+    </div>
+    <nav class="navbar navbar-inverse navbar-fixed-bottom">
+        <center style="color:white; background:#255085"><font size="4" color=":#255085">.</font></center>
+        <center style="color:white; background:#255085"><font size="4">地址：湖北省武汉市洪山区珞喻路152号 &nbsp &nbsp 邮编：430079  &nbsp &nbsp 信息服务电话：027-67863374</font></center>
+        <center style="color:white; background:#255085"><font size="4" color=":#255085">.</font></center>
+    </nav>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{% static 'js/jquery-3.4.1.js' %}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'bootstrap-3.3.7-dist/js/bootstrap.js' %}"></script>
+</body>
+</html>

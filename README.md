@@ -2,7 +2,7 @@
 Software engineering course design
 # wxk.shu.edu.cn
 
-伪华中师范大学选课系统
+选课系统
 
 ## 关于
 
@@ -13,7 +13,7 @@ Software engineering course design
 
 ### 
 
-伪华中师范大学大学统一身份认证登录页面
+统一身份认证登录页面
 
 - 学号/工号密码登录
 - 使用session记住登录状态
